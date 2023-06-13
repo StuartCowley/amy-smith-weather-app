@@ -13,8 +13,8 @@ function ForecastSummaries ({ forecasts }) {
                 icon={forecast.icon}
                 temperature={forecast.temperature}
             />
-        ))}
-   </div>
+        ))}  
+      </div>
   )
 };
 

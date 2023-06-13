@@ -12,7 +12,7 @@ exports[`ForecastSummaries renders correctly 1`] = `
       <div
         class="forecast-summary__date"
       >
-        1111111
+        Invalid Date
       </div>
       <div
         class="forecast-summary__icon"
@@ -38,7 +38,7 @@ exports[`ForecastSummaries renders correctly 1`] = `
       <div
         class="forecast-summary__date"
       >
-        2222222
+        Invalid Date
       </div>
       <div
         class="forecast-summary__icon"
@@ -56,6 +56,14 @@ exports[`ForecastSummaries renders correctly 1`] = `
       >
         Stub description2
       </div>
+    </div>
+    <div
+      class="forecast-summary__icon"
+      data-testid="forecast-icon"
+    >
+      <img
+        alt="icon"
+      />
     </div>
   </div>
 </DocumentFragment>
