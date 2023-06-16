@@ -12,7 +12,7 @@
         },
         "wind": {
           "speed": 13,
-          "direction": "s"
+          "direction": "south"
         },
         "humidity": 30,
         "description": "Clear",
@@ -26,7 +26,7 @@
         },
         "wind": {
           "speed": 60,
-          "direction": "ne"
+          "direction": "northeast"
         },
         "humidity": 80,
         "description": "Stormy",
@@ -40,7 +40,7 @@
         },
         "wind": {
           "speed": 5,
-          "direction": "n"
+          "direction": "north"
         },
         "humidity": 50,
         "description": "Heavy Snow",
@@ -54,7 +54,7 @@
         },
         "wind": {
           "speed": 150,
-          "direction": "e"
+          "direction": "east"
         },
         "humidity": 80,
         "description": "Tornado",
@@ -68,7 +68,7 @@
         },
         "wind": {
           "speed": 8,
-          "direction": "nne"
+          "direction": "north-northeast"
         },
         "humidity": 50,
         "description": "Hazy",

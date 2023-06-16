@@ -15,7 +15,10 @@ exports[`ForecastSummary renders correctly 1`] = `
       class="forecast-summary__icon"
       data-testid="forecast-icon"
     >
-      stubIcon
+      <img
+        alt="icon"
+        src="https://openweathermap.org/img/wn/01d@2x.png"
+      />
     </div>
     <div
       class="forecast-summary__temperature"
