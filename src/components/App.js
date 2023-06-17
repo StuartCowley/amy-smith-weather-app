@@ -9,18 +9,25 @@ function App({ forecasts, location }) {
   const selectedForecast = forecasts.find(
     (forecast) => forecast.date === selectedDate
   );
+  function handleForecastSelect(date) {
+    setSelectedDate(date);
+  }
 
   return (
     <div className="weather-app">
       <div className="forecast">
-        <LocationDetails city={location.city} country={location.country} />
-        <ForecastSummaries forecasts={forecasts} />
+        <div className="location">
+          <LocationDetails city={location.city} country={location.country} />
+        </div>
+        <ForecastSummaries
+          forecasts={forecasts}
+          // eslint-disable-next-line react/jsx-no-bind
+          onForecastSelect={handleForecastSelect}
+        />
         <ForecastDetails forecast={selectedForecast} />
       </div>
     </div>
   );
-  
-  function handleForcastSelect(date);
 }
 
 export default App;
