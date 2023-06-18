@@ -10,7 +10,7 @@ function ForecastSummaries({ forecasts, onForecastSelect }) {
           key={forecast.date}
           date={forecast.date}
           description={forecast.description}
-          icon={forecast.icon}
+          icon={forecast.icon.toString}
           temperature={forecast.temperature}
           onSelect={onForecastSelect}
         />

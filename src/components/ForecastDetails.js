@@ -4,6 +4,7 @@ import "../styles/ForecastDetails.css";
 function ForecastDetails({ forecast }) {
   const { date, temperature, humidity, wind } = forecast;
   const formattedDate = new Date(date).toDateString();
+  console.log("-->", formattedDate, "from", date);
   return (
     <div className="forecast-details" data-testid="forecast-details">
       <div className="forecast-details__date">

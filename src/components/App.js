@@ -1,31 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import LocationDetails from "./LocationDetails";
+import SearchForm from "./SearchForm";
 import ForecastSummaries from "./ForecastSummaries";
 import ForecastDetails from "./ForecastDetails";
 import "../styles/App.css";
 
-function App({ forecasts, location }) {
-  const [selectedDate, setSelectedDate] = useState(forecasts[0].date);
+function App() {
+  const [forecasts, setForecasts] = useState([]);
+  const [location, setLocation] = useState({ city: "", country: "" });
+  const [selectedDate, setSelectedDate] = useState(0);
+
   const selectedForecast = forecasts.find(
     (forecast) => forecast.date === selectedDate
   );
-  function handleForecastSelect(date) {
+
+  const handleForecastSelect = (date) => {
     setSelectedDate(date);
-  }
+  };
+
+  const getForecast = () => {
+    const endpoint = "https://cmd-shift-weather-app.onrender.com/forecast";
+
+    axios.get(endpoint).then((response) => {
+      setSelectedDate(response.data.forecasts[0].date);
+      setForecasts(response.data.forecasts);
+      setLocation(response.data.location);
+    });
+  };
+
+  useEffect(() => {
+    getForecast(setSelectedDate, setForecasts, setLocation);
+  }, []);
 
   return (
     <div className="weather-app">
-      <div className="forecast">
-        <div className="location">
-          <LocationDetails city={location.city} country={location.country} />
-        </div>
-        <ForecastSummaries
-          forecasts={forecasts}
-          // eslint-disable-next-line react/jsx-no-bind
-          onForecastSelect={handleForecastSelect}
-        />
-        <ForecastDetails forecast={selectedForecast} />
+      <div className="location">
+        <LocationDetails city={location.city} country={location.country} />
       </div>
+      <div className="search-form">
+        <SearchForm />
+      </div>
+      <ForecastSummaries
+        forecasts={forecasts}
+        onForecastSelect={handleForecastSelect}
+      />
+      {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
     </div>
   );
 }

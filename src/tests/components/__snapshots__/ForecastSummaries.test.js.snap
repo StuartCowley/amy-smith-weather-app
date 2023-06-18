@@ -17,11 +17,7 @@ exports[`ForecastSummaries renders correctly 1`] = `
       <div
         class="forecast-summary__icon"
         data-testid="forecast-icon"
-      >
-        <img
-          alt="icon"
-        />
-      </div>
+      />
       <div
         class="forecast-summary__temperature"
       >
@@ -50,11 +46,7 @@ exports[`ForecastSummaries renders correctly 1`] = `
       <div
         class="forecast-summary__icon"
         data-testid="forecast-icon"
-      >
-        <img
-          alt="icon"
-        />
-      </div>
+      />
       <div
         class="forecast-summary__temperature"
       >
