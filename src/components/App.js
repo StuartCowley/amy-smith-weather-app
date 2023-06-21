@@ -4,12 +4,14 @@ import LocationDetails from "./LocationDetails";
 import SearchForm from "./SearchForm";
 import ForecastSummaries from "./ForecastSummaries";
 import ForecastDetails from "./ForecastDetails";
+import getForecast from "../requests/getForecast";
 import "../styles/App.css";
 
 function App() {
   const [forecasts, setForecasts] = useState([]);
   const [location, setLocation] = useState({ city: "", country: "" });
   const [selectedDate, setSelectedDate] = useState(0);
+  const [searchText, setSearchText] = useState("");
 
   const selectedForecast = forecasts.find(
     (forecast) => forecast.date === selectedDate
@@ -19,19 +21,13 @@ function App() {
     setSelectedDate(date);
   };
 
-  const getForecast = () => {
-    const endpoint = "https://cmd-shift-weather-app.onrender.com/forecast";
-
-    axios.get(endpoint).then((response) => {
-      setSelectedDate(response.data.forecasts[0].date);
-      setForecasts(response.data.forecasts);
-      setLocation(response.data.location);
-    });
-  };
-
   useEffect(() => {
-    getForecast(setSelectedDate, setForecasts, setLocation);
+    getForecast([], setSelectedDate, setForecasts, setLocation);
   }, []);
+
+  const handleCitySearch = () => {
+    getForecast(searchText, setSelectedDate, setForecasts, setLocation);
+  };
 
   return (
     <div className="weather-app">
@@ -39,7 +35,11 @@ function App() {
         <LocationDetails city={location.city} country={location.country} />
       </div>
       <div className="search-form">
-        <SearchForm />
+        <SearchForm
+          searchText={searchText}
+          setSearchText={setSearchText}
+          onSubmit={handleCitySearch}
+        />
       </div>
       <ForecastSummaries
         forecasts={forecasts}
