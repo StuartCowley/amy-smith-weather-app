@@ -4,7 +4,7 @@ import ForecastDetails from "../../components/ForecastDetails";
 
 describe("ForecastDetails", () => {
   const validProps = {
-    date: Number(1525046400000),
+    date: 111111,
     temperature: {
       min: 12,
       max: 22
@@ -25,11 +25,10 @@ describe("ForecastDetails", () => {
   it("renders correct values for props", () => {
     const { getByText } = render(<ForecastDetails forecast={validProps} />);
 
-    // expect(getByText("Mon Apr 30 2018")).toHaveClass("forecast-details__date");
+    expect(getByText("Thu Jan 01 1970")).toHaveClass("forecast-details__date");
     expect(getByText("12°C")).toHaveClass("forecast-details__temperature-min");
     expect(getByText("22°C")).toHaveClass("forecast-details__temperature-max");
     expect(getByText("28%")).toHaveClass("forecast-details__humidity");
-    // expect(getByText("Wind speed: 12mph")).toHaveClass("forecast-details__wind-speed");
     expect(
       getByText((_, element) => element.textContent === "Wind speed: 12 mph")
     ).toHaveClass("forecast-details__wind-speed");

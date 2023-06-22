@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import ForecastSummary from "../../components/ForecastSummary";
+import SearchForm from "../../components/SearchForm";
 
 describe("SearchForm", () => {
   it("renders correctly", () => {
