@@ -1,5 +1,17 @@
-.App {
+.weather-app {
   text-align: center;
+  margin: 0 20px;
+}
+
+.location {
+  text-align: left;
+  margin: 0 0px;
+}
+
+.search-form {
+  text-align: left;
+  margin: 0 0px;
+  margin-bottom: 30px;
 }
 
 .App-logo {
